@@ -135,7 +135,7 @@ html, body {
 	width: 100%;
 }
 .pow-app .header-container header{
-	background: none repeat scroll 0% 0% #66B2B8;
+	background: none repeat scroll 0% 0% #FCDE2B;
 }
 
 .pow-app .header-container header {
@@ -202,7 +202,17 @@ html, body {
   position: relative;
   top: 4px;
 }
-
+.pow-app .header-container header .menu-icon {
+	background-repeat: no-repeat;
+	display: inline-block;
+	vertical-align: middle;
+	font-size: 34px;
+}
+.pow-app .padding{
+	padding: 0.5em 1em;
+	box-sizing: border-box;	
+}
+ 
 
 /*  Container */
 
