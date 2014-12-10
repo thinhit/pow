@@ -251,17 +251,34 @@ html, body {
   width: 250px;
   position: fixed;
   z-index: 100;
-  -webkit-transform: translate3d(-100%, 0, 0);
-  transform: translate3d(-100%, 0, 0);
-  -webkit-transition: -webkit-transform 0.2s ease-in-out;
-  transition: transform 0.2s ease-in-out;
+  -webkit-transform: translate3d(-250px, 0, 0);
+  transform: translate3d(-250px, 0, 0);
   top: 55px;
   background: #434b5c;
 }
+
+.pow-app .menu-animate{
+  -webkit-transition: -webkit-transform 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out;
+}
+
 .pow-app .menu-left.open {
-  -webkit-transform: translate3d(0, 0, 0);
-  -moz-transform: translate3d(0, 0, 0);
-  -o-transform: translate3d(0, 0, 0);
-  transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0)!important;
+  -moz-transform: translate3d(0, 0, 0)!important;
+  -o-transform: translate3d(0, 0, 0)!important;
+  transform: translate3d(0, 0, 0)!important;
   z-index: 100;
+}
+
+div[swipe-menu]{
+  width:270px;
+  height:200px;
+  background:red;
+}
+
+.touch-speed{
+  touch-action: none;
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
