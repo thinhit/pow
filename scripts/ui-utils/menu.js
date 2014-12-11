@@ -8,9 +8,9 @@ angular.module('Pow')
             link: function (scope, el, attr) {
                 var navMenu = angular.element(el).find('nav');
                 var open = false,
-                clickEventType= document.ontouchstart !== null ? 'mousedown' : 'touchstart',
-                moveEventType = document.ontouchmove  !== null ? 'mousemove' : 'touchmove' ,
-                endEventType  = document.ontouchend   !== null ? 'mouseup'   : 'touchend'  ;
+                clickEventType = document.ontouchstart !== null ? 'mousedown' : 'touchstart',
+                moveEventType  = document.ontouchmove  !== null ? 'mousemove' : 'touchmove' ,
+                endEventType   = document.ontouchend   !== null ? 'mouseup'   : 'touchend'  ;
                 navMenu.addClass('menu-animate');
                 $('.main-container').on(clickEventType, function (ev){
                     
