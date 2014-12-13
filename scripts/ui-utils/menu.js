@@ -18,7 +18,6 @@ angular.module('Pow')
                         endAt, 
                         posX = 0;
 
-
                     if(ev.hasOwnProperty('touches') && ev.touches[0].pageX < 5){
                         console.log(ev.touches[0].pageX)
                         ev.preventDefault();
