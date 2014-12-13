@@ -11,7 +11,13 @@ angular.module('Pow')
                 clickEventType = document.ontouchstart !== null ? 'mousedown' : 'touchstart',
                 moveEventType  = document.ontouchmove  !== null ? 'mousemove' : 'touchmove' ,
                 endEventType   = document.ontouchend   !== null ? 'mouseup'   : 'touchend'  ;
-                navMenu.addClass('menu-animate');
+                navMenu.addClass('menu-animate'),
+                backdrop = $('.pow-backdrop');
+
+                backdrop.on(clickEventType, function (ev){
+                    $rootScope.$broadcast('CLOSE_NAV_MENU');
+                })
+
                 $('.main-container').on(clickEventType, function (ev){
                     
                     var startAt = 0,
@@ -35,6 +41,7 @@ angular.module('Pow')
 
                             if(!navMenu.hasClass('open')){
                                 navMenu.removeClass('menu-animate');
+
                                 navMenu.css({
                                     /*left:posX + 'px'*/
                                     transform: 'translate3d(' + (posX) + 'px, 0, 0)',
@@ -52,10 +59,11 @@ angular.module('Pow')
                             if(((250/2) + posX) > 0){
 
                                 navMenu.addClass('open');
-
+                                backdrop.addClass('open');                                    
                             }else {
                                 if(navMenu.hasClass('open')){
                                     navMenu.removeClass('open');
+                                    backdrop.removeClass('open');
                                 }else {
                                     navMenu.css({
                                         transform: 'translate3d(-250px, 0, 0)',
@@ -87,14 +95,17 @@ angular.module('Pow')
 
                 $rootScope.$on('OPEN_NAV_MENU', function () {
                     navMenu.addClass('open');
+                    
                     navMenu.css({
                         transform: '',
                         '-webkit-transform': ''
                     });
+                    backdrop.addClass('open');
                 });
 
                 $rootScope.$on('CLOSE_NAV_MENU', function () {
                     navMenu.removeClass('open');
+                    backdrop.removeClass('open');
                     navMenu.css({
                         transform: '',
                         '-webkit-transform': ''
