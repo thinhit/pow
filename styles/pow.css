@@ -135,7 +135,7 @@ html, body {
 	width: 100%;
 }
 .pow-app .header-container header{
-	background: none repeat scroll 0% 0% #FCDE2B;
+	background: none repeat scroll 0% 0%  #181818 ; /* #FCDE2B; */
 }
 
 .pow-app .header-container header {
@@ -207,6 +207,8 @@ html, body {
 	display: inline-block;
 	vertical-align: middle;
 	font-size: 34px;
+  padding: 10px 12px;
+  color: #FCDE2B;
 }
 .pow-app .padding{
 	padding: 0.5em 1em;
@@ -217,7 +219,7 @@ html, body {
 /*  Container */
 
 .pow-app .main-container, 
-.pow-app .main-container .scroll-content {
+.pow-app .scroll-content {
 	-webkit-transition-duration: 0;
 	-webkit-backface-visibility: hidden;
 	-webkit-transform: translate3d(0, 0, 0);
@@ -254,7 +256,7 @@ html, body {
   -webkit-transform: translate3d(-250px, 0, 0);
   transform: translate3d(-250px, 0, 0);
   top: 55px;
-  background: #434b5c;
+  background: #ffffff;
 }
 
 .pow-app .menu-animate{

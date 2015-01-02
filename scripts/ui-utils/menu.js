@@ -1,5 +1,5 @@
 
-angular.module('Pow')
+angular.module('Pow', [])
    
     .directive('powMenu', function ($rootScope) {
         return {
@@ -18,15 +18,20 @@ angular.module('Pow')
                     $rootScope.$broadcast('CLOSE_NAV_MENU');
                 })
 
-                $('.main-container').on(clickEventType, function (ev){
-                    
+                $(document).on(clickEventType, function (ev){
+
                     var startAt = 0,
                         endAt, 
                         posX = 0;
 
                     if(ev.hasOwnProperty('touches') && ev.touches[0].pageX < 5){
                         console.log(ev.touches[0].pageX)
+                        
+                        ev.stopPropagation();
                         ev.preventDefault();
+                        
+                        
+
                         
                         var moveHandler = function (e){
                                 posX = e.pageX - startAt;
@@ -37,7 +42,7 @@ angular.module('Pow')
                                 }
                                 posX = (Math.min( Math.max(0, posX), 250 - startAt)) -250;
                                 
-                                document.getElementById('mana').innerHTML = posX;
+                                
 
                             if(!navMenu.hasClass('open')){
                                 navMenu.removeClass('menu-animate');
@@ -50,11 +55,11 @@ angular.module('Pow')
                             }
                         },
                         stopHandler = function () {
-                            $('.main-container').off(moveEventType);
-                            $('.main-container').off(endEventType);
+                            $(document).off(moveEventType);
+                            $(document).off(endEventType);
 
-                            console.log('blabla');
-                            document.getElementById('mana').innerHTML = 'Touch end' + posX + ' --- ' + 250/2 + '  ++++   ' + ((250/2) + posX) ;
+                            
+                            
                             navMenu.addClass('menu-animate');
                             if(((250/2) + posX) > 0){
 
@@ -82,10 +87,10 @@ angular.module('Pow')
                             startAt  = ev.touches[0].pageX;
                         }   
 
-                        $('.main-container').on(moveEventType, moveHandler);
+                        $(document).on(moveEventType, moveHandler);
 
 
-                        $('.main-container').on(endEventType, function (){
+                        $(document).on(endEventType, function (){
                             stopHandler()
                         })
                     }
@@ -120,9 +125,16 @@ angular.module('Pow')
         return {
             restrict: 'ECMA',
             transclude: false,
-            link: function (scope, el, attr) {
-                angular.element(el).on('click', function () {
 
+            link: function (scope, el, attr) {
+                
+                var clickEventType = document.ontouchstart !== null ? 'mousedown' : 'touchstart';
+
+                
+                var mc = new Hammer(el[0]);
+
+                mc.on("tap", function(ev) {
+                    ev.stopPropagation();
                     var menuEl = document.querySelectorAll('pow-menu'),
                         menuHasOpen = angular.element(menuEl).find('nav').hasClass('open');
 
@@ -131,9 +143,9 @@ angular.module('Pow')
                     } else {
                         $rootScope.$broadcast('CLOSE_NAV_MENU');
                     }
+
+                    ev.preventDefault();
                 });
-
-
             }
         }
     })
