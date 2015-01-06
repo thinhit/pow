@@ -37,7 +37,7 @@ angular.module('PowStartedApp', [
 		.state('app.home', {
 			url: "home",
 			templateUrl: "views/home.html",
-			controller: function (gmaps, $timeout){
+			controller: function ( $timeout){
 				
 				
 			}
@@ -45,21 +45,21 @@ angular.module('PowStartedApp', [
 		.state('app.history', {
 			url: "history",
 			templateUrl: "views/history.html",
-			controller: function (gmaps){
+			controller: function (){
 				
 			}
 		})
 		.state('app.payment', {
 			url: "payment",
 			templateUrl: "views/payment.html",
-			controller: function (gmaps){
+			controller: function (){
 				
 			}
 		})
 		.state('app.contact', {
 			url: "contact",
 			templateUrl: "views/contact.html",
-			controller: function (gmaps){
+			controller: function (){
 				
 			}
 		})
