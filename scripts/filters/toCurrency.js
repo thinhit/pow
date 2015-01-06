@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('SudaTaxi')
+angular.module('PowStartedApp')
     .filter('toCurrency', [function () {
         return function (number) {
             var numberStr = number.toString(),

@@ -1,4 +1,4 @@
-angular.module('SudaTaxi', [
+angular.module('PowStartedApp', [
 	'ui.router',
 	'ngSanitize',
 	'ngResource',

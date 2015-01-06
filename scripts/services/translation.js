@@ -1,7 +1,7 @@
 'use strict';
 
 
-angular.module('SudaTaxi')
+angular.module('PowStartedApp')
     .factory('$translation', ['$timeout' , '$resource',
         function ($timeout, $resource) {
         	return {

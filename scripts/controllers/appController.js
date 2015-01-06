@@ -1,6 +1,6 @@
 "use strict";
 
-angular.module('SudaTaxi')
+angular.module('PowStartedApp')
 	.controller('appController', ['$scope', '$timeout', 'gmaps', function ($scope, $timeout, gmaps){
 		console.log('appController', 'start', true);
 
